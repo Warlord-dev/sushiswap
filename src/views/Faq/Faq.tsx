@@ -27,7 +27,6 @@ class Faq extends Component {
 
   render() {
     return (
-      // <Container>
         <Page>
           <StyledPageHeader>
             <StyledIcon>📖</StyledIcon>
@@ -176,13 +175,7 @@ class Faq extends Component {
               </CardContent>
             </Card>
           </StyledContainer>
-          {/* <StyledContainer>
-            <StyledContentInner>
-
-            </StyledContentInner>
-          </StyledContainer> */}
         </Page>
-      // {/* </Container> */}
     );
   }
 }

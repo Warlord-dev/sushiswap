@@ -112,45 +112,45 @@ export const supportedPools = [
     tokenSymbol: 'DAI',
     icon: '🦆',
   },
-  // {
-  //   pid: 21,
-  //   lpAddresses: {
-  //     1: '0xceff51756c56ceffca006cd410b03ffc46dd3a58',
-  //   },
-  //   tokenAddresses: {
-  //     1: '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599',
-  //   },
-  //   name: "BitCorn",
-  //   symbol: 'WBTC-ETH SLP',
-  //   tokenSymbol: 'WBTC',
-  //   icon: '🌽',
-  // },
-  // {
-  //   pid: 0,
-  //   lpAddresses: {
-  //     1: '0x06da0fd433C1A5d7a4faa01111c044910A184553',
-  //   },
-  //   tokenAddresses: {
-  //     1: '0xdac17f958d2ee523a2206206994597c13d831ec7',
-  //   },
-  //   name: 'Tether Turtle',
-  //   symbol: 'USDT-ETH SLP',
-  //   tokenSymbol: 'USDT',
-  //   icon: '🐢',
-  // },
-  // {
-  //   pid: 11,
-  //   lpAddresses: {
-  //     1: '0x088ee5007C98a9677165D78dD2109AE4a3D04d0C',
-  //   },
-  //   tokenAddresses: {
-  //     1: '0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e',
-  //   },
-  //   name: 'YFI Whale',
-  //   symbol: 'YFI-ETH SLP',
-  //   tokenSymbol: 'YFI',
-  //   icon: '🐋',
-  // },
+  {
+    pid: 21,
+    lpAddresses: {
+      1: '0xceff51756c56ceffca006cd410b03ffc46dd3a58',
+    },
+    tokenAddresses: {
+      1: '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599',
+    },
+    name: "BitCorn",
+    symbol: 'WBTC-ETH SLP',
+    tokenSymbol: 'WBTC',
+    icon: '🌽',
+  },
+  {
+    pid: 0,
+    lpAddresses: {
+      1: '0x06da0fd433C1A5d7a4faa01111c044910A184553',
+    },
+    tokenAddresses: {
+      1: '0xdac17f958d2ee523a2206206994597c13d831ec7',
+    },
+    name: 'Tether Turtle',
+    symbol: 'USDT-ETH SLP',
+    tokenSymbol: 'USDT',
+    icon: '🐢',
+  },
+  {
+    pid: 11,
+    lpAddresses: {
+      1: '0x088ee5007C98a9677165D78dD2109AE4a3D04d0C',
+    },
+    tokenAddresses: {
+      1: '0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e',
+    },
+    name: 'YFI Whale',
+    symbol: 'YFI-ETH SLP',
+    tokenSymbol: 'YFI',
+    icon: '🐋',
+  },
   // {
   //   pid: 3,
   //   lpAddresses: {

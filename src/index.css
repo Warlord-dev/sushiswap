@@ -1,0 +1,15 @@
+body {
+  /* background: #fff8ee; */
+  background: radial-gradient(circle at center top, rgb(247, 243, 244), rgb(243, 237, 239)) 0% 0% / cover fixed;
+  color: rgb(20, 1, 8);
+  margin: 0;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

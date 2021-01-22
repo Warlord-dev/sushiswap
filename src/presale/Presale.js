@@ -6,9 +6,10 @@ import { EVM } from './lib/evm.js'
 
 import { contractAddresses } from './lib/constants'
 
-export class Sushi {
+export class Presale {
   constructor(provider, networkId, testing, options) {
     var realProvider
+
 
     if (typeof provider === 'string') {
       if (provider.includes('wss')) {
@@ -38,6 +39,7 @@ export class Sushi {
     }
     this.contracts = new Contracts(realProvider, networkId, this.web3, options)
     this.presaleAddress = contractAddresses.PresaleErc20[networkId]
+    this.DepositAmount = this.getDepositAmount()
     // this.sushiAddress = contractAddresses.sushi[networkId]
     // this.masterChefAddress = contractAddresses.masterChef[networkId]
     // this.wethAddress = contractAddresses.weth[networkId]
@@ -64,6 +66,12 @@ export class Sushi {
 
   getDefaultAccount() {
     return this.web3.eth.defaultAccount
+  }
+
+  async getDepositAmount() {
+    const DepositAmount = await this.contracts.PresaleErc20.methods.getDepositAmount().call()
+    // return new BigNumber(DepositAmount);
+    return DepositAmount;
   }
 
   loadAccount(account) {

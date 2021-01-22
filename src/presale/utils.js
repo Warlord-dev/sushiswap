@@ -13,6 +13,20 @@ const GAS_LIMIT = {
   },
 }
 
+export const getDepositAmount = async (presale) => {
+  return new BigNumber(await presale.presale.contracts.PresaleErc20.methods.getDepositAmount().call())
+}
+
+export const deposit = async (contract,account, amount) => {
+  return contract.presale.contracts.PresaleErc20.methods
+      .deposit()
+      .send({ from: account , value: new BigNumber(amount).times(new BigNumber(10).pow(18)).toString()})
+      .on('transactionHash', (tx) => {
+        console.log(tx)
+        return tx.transactionHash
+      })
+}
+
 export const getPresaleAddress = (sushi) => {
   return sushi && sushi.PresaleErc20
 }

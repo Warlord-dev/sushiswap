@@ -5,15 +5,16 @@ import { UseWalletProvider } from 'use-wallet'
 import DisclaimerModal from './components/DisclaimerModal'
 import MobileMenu from './components/MobileMenu'
 import TopBar from './components/TopBar'
-import FarmsProvider from './contexts/Farms'
+// import FarmsProvider from './contexts/Farms'
 import ModalsProvider from './contexts/Modals'
-import TransactionProvider from './contexts/Transactions'
-import SushiProvider from './contexts/SushiProvider'
+// import TransactionProvider from './contexts/Transactions'
+// import SushiProvider from './contexts/SushiProvider'
+import PresaleProvider from './contexts/PresaleProvider'
 import useModal from './hooks/useModal'
 import {darkTheme, lightTheme} from './theme'
 import Farms from './views/Farms'
 import Home from './views/Home'
-import Staking from "./views/Staking";
+// import Staking from "./views/Staking";
 import FAQ from "./views/Faq";
 import { useSelector } from 'react-redux';
 
@@ -43,12 +44,12 @@ const App: React.FC = () => {
           <Route path="/" exact>
             <Home />
           </Route>
-          <Route path="/farms">
+          {/* <Route path="/farms">
             <Farms />
-          </Route>
-          <Route path="/staking">
+          </Route> */}
+          {/* <Route path="/staking">
             <Staking />
-          </Route>
+          </Route> */}
           <Route path="/faq">
             <FAQ />
           </Route>
@@ -65,18 +66,18 @@ const Providers: React.FC = ({ children }) => {
     <ThemeProvider theme={lightTheme}>
     <GlobalStyle/>
       <UseWalletProvider
-        chainId={1}
+        chainId={4}
         connectors={{
           walletconnect: { rpcUrl: 'https://mainnet.eth.aragon.network/' },
         }}
       >
-        <SushiProvider>
-          <TransactionProvider>
-            <FarmsProvider>
+        <PresaleProvider>
+          {/* <TransactionProvider> */}
+            {/* <FarmsProvider> */}
               <ModalsProvider>{children}</ModalsProvider>
-            </FarmsProvider>
-          </TransactionProvider>
-        </SushiProvider>
+            {/* </FarmsProvider> */}
+          {/* </TransactionProvider> */}
+        </PresaleProvider>
       </UseWalletProvider>
     </ThemeProvider>
   )

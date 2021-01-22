@@ -40,7 +40,8 @@ export const addressMap = {
 
 export const contractAddresses = {
   PresaleErc20: {
-    4: '0x5F863cA8912E2273bbD3E8ac958B60EaDC48204C'
+    4: '0x5F863cA8912E2273bbD3E8ac958B60EaDC48204C',
+    // 4: '0xB48963312F0433c840fe4c362a283e908761dbd3'
   }
   // sushi: {
   //   1: '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2',

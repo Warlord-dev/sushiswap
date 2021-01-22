@@ -12,16 +12,19 @@ import useAllEarnings from '../../../hooks/useAllEarnings'
 import useAllStakedValue from '../../../hooks/useAllStakedValue'
 import useFarms from '../../../hooks/useFarms'
 import useTokenBalance from '../../../hooks/useTokenBalance'
-import useSushi from '../../../hooks/useSushi'
-import { getSushiAddress, getSushiSupply } from '../../../sushi/utils'
+// import useSushi from '../../../hooks/useSushi'
+import usePresale from '../../../hooks/usePresale'
+import { getDepositAmount } from '../../../presale/utils'
+
+
+// import { getSushiAddress, getSushiSupply } from '../../../sushi/utils'
+// import { getDepositAmount } from '../../../presale/Presale'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 
 import PropTypes from 'prop-types';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -75,6 +78,7 @@ const PendingRewards: React.FC = () => {
   }
 
   const [farms] = useFarms()
+
   const allStakedValue = useAllStakedValue()
 
   if (allStakedValue && allStakedValue.length) {
@@ -115,20 +119,27 @@ const PendingRewards: React.FC = () => {
 
 const Balances: React.FC = () => {
   const classes = useStyles();
-  const [totalSupply, setTotalSupply] = useState<BigNumber>()
-  const sushi = useSushi()
-  const sushiBalance = useTokenBalance(getSushiAddress(sushi))
+  
+  const [DepositAmount, setDepositAmount] = useState<BigNumber>()
+
   const { account, ethereum }: { account: any; ethereum: any } = useWallet()
 
+  const presale = usePresale();
+
   useEffect(() => {
-    async function fetchTotalSupply() {
-      const supply = await getSushiSupply(sushi)
-      setTotalSupply(supply)
+    async function fetchDepositAmount() {
+      const amount = await getDepositAmount(presale)
+      setDepositAmount(amount)
     }
-    if (sushi) {
-      fetchTotalSupply()
+    if (presale.presale) {
+      fetchDepositAmount()
     }
-  }, [sushi, setTotalSupply])
+  }, [presale, setDepositAmount])
+
+  let depositAmount = 0
+  BigNumber.set({ DECIMAL_PLACES: 10 })
+  if(DepositAmount)
+    depositAmount = DepositAmount.toNumber() / 1E18
 
   return (
     <StyledWrapper>
@@ -148,7 +159,7 @@ const Balances: React.FC = () => {
           {0}
         </Grid>
         <Grid item xs>
-          <PrettoSlider valueLabelDisplay="auto" defaultValue={20} min={0} max={1000}/>
+          <PrettoSlider className='' key={`PrettoSlider-${depositAmount}`} valueLabelDisplay="auto" defaultValue={depositAmount} min={0} max={1000}/>
         </Grid>
         <Grid item>
           {1000}

@@ -10,11 +10,11 @@ import { themeReducer } from './redux/themeReducer';
 const store = createStore(themeReducer);
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
       <App />
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
+  // </React.StrictMode>,
   document.getElementById('root'),
 )
 // serviceWorker.unregister();
